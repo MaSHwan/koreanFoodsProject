@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="map.jsp">as</a>
 </body>
 </html>
