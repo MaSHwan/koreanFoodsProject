@@ -22,7 +22,7 @@ public class ActionFactory {
 		System.out.println(cmd);
 		switch (cmd) {
 		
-		case "Map":
+		case "map":
 			action = new MapAction();
 			break;
 			
