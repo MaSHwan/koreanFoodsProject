@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="map.jsp">as</a>
+<a href="map.jsp">음식점 검색하러 ㄱㄱ</a>
 </body>
 </html>
