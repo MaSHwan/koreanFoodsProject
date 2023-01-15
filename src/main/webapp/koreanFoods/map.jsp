@@ -4,32 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../koreanFoods/foodSearch.css">
+
 <title>Insert title here</title>
 </head>
 <body>
 	
-	<div class="map-wrap">
-		<div id="map" style="width:100%;height:100%;position:relative; overflow:hidden;"></div>
+	
 		
-		<div id="menu_wrap" class="bg_white">
-			<div class="option">
-				<div>
-					<form onsubmit="searchPlaces(); return false;">
-					음식점 : <input type="text" value=" " id = "keyword" size="15">
-					<button type="submit">검색하기</button>
-					</form>
-				</div>
-			</div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
-		
-		</div>
-	</div>
-	
-	
-	
 	
 	<div id="map" style="width:300px; height:500px;"></div>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=abc2d2f1dffc906d0c488a1f1ba5953c"></script>
@@ -38,47 +19,38 @@
 	
 	<script>
 		
-		var markers = [];
 		
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-		var container = document.getElementById('map');
-		        var options = {
-		            center: new kakao.maps.LatLng(33.450701, 126.570667),
-		            level: 3
-		        };
-				// 지도 생성 
-		        var map = new kakao.maps.Map(container, options);
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng( 37.572756722019356, 126.9758715167294), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption);
+
+// 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(37.572756722019356, 126.9758715167294); 
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+var iwContent = '<div style="padding:5px;">설가온 <br><a href="https://www.google.com/maps/uv?pb=!1s0x357ca2eb52cf6963%3A0x87b70ab00f6b5b56!15sCgIYIQ&viewerState=lb&sa=X&ved=2ahUKEwjqtcKc2Mj8AhWLh1YBHYkbDGIQzeMEegQIChAA&imagekey=!1e10!2sAF1QipOgrvZ5HbMNd5F9phPTD4GXKTkpEY3DO0EQ0rXP,37.572756722019356,126.9758715167294" style="color:blue" target="_blank">메뉴보기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwPosition = new kakao.maps.LatLng(37.572756722019356, 126.9758715167294); //인포윈도우 표시 위치입니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    position : iwPosition, 
+    content : iwContent 
+});
+  
+// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+infowindow.open(map, marker); 
 				
-				// 장소 검색 객체 생성
-				var ps = new kakao.maps.services.Places(map);
-				
-				// 카테고리로 음식점 검색
-				ps.categorySearch('FD6', placesSearchCB, {useMapBounds:true});
-				
-				// 키워드 검색 완료시 호출되는 콜백함수
-				function placesSearchCB (data, status, pagination){
-					if (status === kakao.maps.services.Status.OK){
-						for(var i = 0; i < data.length; i++){
-							displayMarker(data[i]);
-						}
-					}
-				}
-				
-				// 지도에 마커표시하는 함수
-				function displayMarker(place){
-					// 마커를 생성하고 지도에 표시
-					var marker = new kakao.maps.Marker({
-						map: map,
-						position: new kakao.maps.LatLng(place.y, place.x)
-					});
-					
-					// 마커에 클릭이벤트 등록
-					kakao.maps.event.addListener(marker, 'click', function(){
-						// 마커를 클릭하면 장소명이 인포윈도우에 표출
-						infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-						infowindow.open(map, marker);
-					});
-				}
 		        
 		        
 		
