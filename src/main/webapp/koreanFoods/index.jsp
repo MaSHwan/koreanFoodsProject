@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="map.jsp">음식점 검색하러 ㄱㄱ</a>
+<a href="koreanFoodsList.jsp">한식 ㄱㄱ</a> <br>
+<a href="japaneseFoodsList.jsp">일식 ㄱㄱ</a> <br>
+<a href="chineseFoodsList">중식 ㄱㄱ</a>
 </body>
 </html>

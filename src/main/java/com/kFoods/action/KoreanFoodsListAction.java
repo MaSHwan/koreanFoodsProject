@@ -11,7 +11,7 @@ import com.kFoods.control.ActionForward;
 import com.kFoods.model.FoodChainDAO;
 import com.kFoods.model.FoodChainVO;
 
-public class ListAction implements Action {
+public class KoreanFoodsListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -59,7 +59,7 @@ public class ListAction implements Action {
 	    // «ÿ¥Á ∫‰∑Œ π›»Ø«ÿ¡‹
 	
 		
-		return new ActionForward("/koreanFoods/list.jsp", false);
+		return new ActionForward("/koreanFoods/koreanFoodsList.jsp", false);
 	}
 
 }
