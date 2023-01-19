@@ -1,7 +1,9 @@
 package com.kFoods.control;
 
 import com.kFoods.action.Action;
+import com.kFoods.action.ContentAction;
 import com.kFoods.action.IndexAction;
+import com.kFoods.action.ListAction;
 import com.kFoods.action.MapAction;
 
 public class ActionFactory {
@@ -24,6 +26,14 @@ public class ActionFactory {
 		
 		case "map":
 			action = new MapAction();
+			break;
+			
+		case "list":
+			action = new ListAction();
+			break;
+			
+		case "content":
+			action = new ContentAction();
 			break;
 			
 		default:
