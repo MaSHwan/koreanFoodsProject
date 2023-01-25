@@ -3,6 +3,7 @@ package com.kFoods.model;
 public class FoodChainVO {
 
 	private int num;
+	private String category;
 	private String name;
 	private String nickname;
 	private String address;
@@ -12,6 +13,16 @@ public class FoodChainVO {
 	private String taste;
 	private String hygiene;
 	private String review;
+
+	
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	public String getNickname() {
 		return nickname;

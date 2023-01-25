@@ -3,7 +3,7 @@ package com.kFoods.control;
 import com.kFoods.action.Action;
 import com.kFoods.action.ContentAction;
 import com.kFoods.action.IndexAction;
-import com.kFoods.action.KoreanFoodsListAction;
+import com.kFoods.action.FoodsListAction;
 import com.kFoods.action.MapAction;
 
 public class ActionFactory {
@@ -28,8 +28,8 @@ public class ActionFactory {
 			action = new MapAction();
 			break;
 			
-		case "koreanFoodsList":
-			action = new KoreanFoodsListAction();
+		case "foodsList":
+			action = new FoodsListAction();
 			break;
 			
 		case "content":

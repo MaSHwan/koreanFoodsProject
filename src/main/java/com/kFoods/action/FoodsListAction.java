@@ -11,7 +11,7 @@ import com.kFoods.control.ActionForward;
 import com.kFoods.model.FoodChainDAO;
 import com.kFoods.model.FoodChainVO;
 
-public class KoreanFoodsListAction implements Action {
+public class FoodsListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
